@@ -97,10 +97,10 @@ void try_puz (int n)
     for (istate = 1; istate < n_states; istate++)
     {	for (irow = 0; irow < n_rows; irow++) {
     		for (icol = 0; icol < n; icol++) {
-            	init_board [irow] [icol] = (istate >> ((n_rows * irow) + icol)) & 1;
+            	init_board [irow] [icol] = (istate >> ((n * irow) + icol)) & 1;
             }
     	}
-        /*
+/*
     	printf ("try n = %d", n);
     	for (irow = 0; irow < n_rows; irow++) {
     		for (icol = 0; icol < n; icol++) {
@@ -108,8 +108,9 @@ void try_puz (int n)
             }
         }
         printf ("\n");
-        */
+*/
         if (try_osc (init_board, n, false)) {
+        printf ("%d\n", istate);
         	try_osc (init_board, n, true);
         }
     }
